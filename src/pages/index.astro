@@ -1,15 +1,94 @@
-
 ---
+/**
+ * Main Page - Todo Application Entry Point
+ * =========================================
+ *
+ * This is the main Astro page that serves as the entry point for the Todo application.
+ * It imports and renders the React-based TodoApp component with client-side hydration.
+ *
+ * Astro Features Used:
+ * - Static HTML generation with client-side React hydration (client:load)
+ * - Import of global CSS for styling
+ * - Component imports from the src directory
+ *
+ * @see {@link https://docs.astro.build/en/core-concepts/astro-components/} Astro Components
+ * @see {@link https://docs.astro.build/en/guides/integrations-guide/react/} Astro React Integration
+ */
+
+// Import the main React component for the Todo application
+// This component handles all todo CRUD operations and state management
 import TodoApp from "../components/TodoApp";
+
+// Import global styles including Tailwind CSS and custom properties
+// These styles apply to the entire application
+import "../styles/global.css";
 ---
 
+<!--
+  HTML Document Structure
+  =======================
+  Standard HTML5 document structure with semantic markup.
+  The lang attribute is set to "en" for accessibility.
+-->
 <html lang="en">
   <head>
+    <!-- Character encoding for proper text rendering -->
     <meta charset="utf-8" />
-    <title>Todo App – Astro + Go</title>
+
+    <!-- Responsive viewport configuration -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO and Browser Display -->
+    <title>Todo App – Modern Task Management</title>
+    <meta name="description" content="A modern, beautiful todo application built with Astro, React, and Tailwind CSS. Organize your tasks and boost your productivity." />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#8b5cf6" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Inter font - Modern, readable typeface optimized for screens -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="min-h-screen bg-slate-900 text-slate-100 flex justify-center p-8">
-    <TodoApp client:load />
+
+  <!--
+    Body Element
+    ============
+    Uses Tailwind utility classes for:
+    - min-h-screen: Ensures full viewport height
+    - flex: Enables flexbox layout
+    - items-center: Centers content vertically
+    - justify-center: Centers content horizontally
+    - p-4 md:p-8: Responsive padding (smaller on mobile)
+
+    The background gradient is applied via global CSS.
+  -->
+  <body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+    <!--
+      Main Content Container
+      ======================
+      Wraps the TodoApp component with proper width constraints.
+      Uses responsive width classes for optimal viewing on all devices.
+    -->
+    <main class="w-full max-w-2xl">
+      <!--
+        TodoApp Component
+        =================
+        The main React component for the todo application.
+
+        client:load directive:
+        - Hydrates the component as soon as the page loads
+        - Required for interactive React components in Astro
+        - Enables state management and event handling
+
+        @see {@link https://docs.astro.build/en/reference/directives-reference/#clientload}
+      -->
+      <TodoApp client:load />
+    </main>
   </body>
 </html>
