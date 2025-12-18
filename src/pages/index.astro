@@ -1,16 +1,19 @@
----
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2025 Vahid Rafiei
+ */
 
+---
+import TodoApp from "../components/TodoApp";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo App – Astro + Go</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="min-h-screen bg-slate-900 text-slate-100 flex justify-center p-8">
+    <TodoApp client:load />
+  </body>
 </html>
