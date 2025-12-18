@@ -1,9 +1,3 @@
-/*
- * SPDX-License-Identifier: MIT
- * Copyright (c) 2025 Vahid Rafiei
- */
-
-
 import React, { useEffect, useState } from "react";
 import type { Todo } from "../lib/api";
 import { fetchTodos, createTodo, updateTodo, deleteTodo } from "../lib/api";
