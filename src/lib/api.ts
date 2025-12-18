@@ -19,7 +19,7 @@
  * - DELETE /api/todos/:id  - Delete a todo
  *
  * @module api
- * @author Todo Team
+ * @author (C) Vahid Rafiei
  */
 
 /**
