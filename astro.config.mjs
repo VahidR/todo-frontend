@@ -10,6 +10,17 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    // Proxy API requests to the backend server during development
+    // This solves CORS issues by making API requests appear to come from the same origin
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true,
+          secure: false,
+        }
+      }
+    }
   }
 });
