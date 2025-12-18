@@ -50,16 +50,21 @@ export interface Todo {
  * variables for different environments (development, staging, production).
  *
  * Environment Variable: PUBLIC_API_BASE_URL
- * Default: http://localhost:8080 (for local development)
+ * Default: Empty string for development (uses Vite proxy to avoid CORS issues)
  *
- * Usage:
- * - Set PUBLIC_API_BASE_URL in .env file for custom backend URL
- * - In production, point to your deployed backend server
+ * In development:
+ * - Leave PUBLIC_API_BASE_URL unset or empty
+ * - Requests go to /api/* which Vite proxies to http://localhost:8080
+ * - This avoids CORS issues since requests appear same-origin
+ *
+ * In production:
+ * - Set PUBLIC_API_BASE_URL to your deployed backend URL
+ * - Example: PUBLIC_API_BASE_URL=https://api.example.com
  *
  * @constant {string}
  */
 const API_BASE =
-  import.meta.env.PUBLIC_API_BASE_URL ?? "http://localhost:8080";
+  import.meta.env.PUBLIC_API_BASE_URL ?? "";
 
 /**
  * Generic Response Handler
