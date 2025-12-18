@@ -2,9 +2,10 @@
 # Build Output
 # ===================
 dist/
+.output/
 
 # ===================
-# Generated Files
+# Generated Files (Astro)
 # ===================
 .astro/
 
@@ -21,6 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
 # ===================
 # Environment Variables
@@ -33,18 +35,59 @@ pnpm-debug.log*
 # OS Files
 # ===================
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # ===================
 # IDEs & Editors
 # ===================
 # JetBrains (WebStorm, IntelliJ, etc.)
 .idea/
+*.iml
+*.iws
+*.ipr
 
 # VSCode
 .vscode/
 
 # ===================
-# Lock Files
+# TypeScript
+# ===================
+*.tsbuildinfo
+
+# ===================
+# Cache
+# ===================
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+
+# ===================
+# Testing
+# ===================
+coverage/
+.nyc_output/
+
+# ===================
+# Deployment
+# ===================
+.vercel/
+.netlify/
+
+# ===================
+# Misc
+# ===================
+*.local
+*.sw?
+
+# ===================
+# Lock Files (Optional)
 # ===================
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
